@@ -1,0 +1,108 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    margin:inherit;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.list {
+    width: 100%;
+    overflow: hidden;
+}
+
+.list .item {
+    border-bottom: 1px solid #E1E1E1;
+    position: relative;
+    height: 40px;
+}
+
+.list .item .item-swipe {
+	background: #ffffff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	z-index: 1;
+}
+
+.list .item a.item-swipe {
+	display: block;
+	height: 100%;
+	position: relative;
+	text-decoration: inherit;
+	color: #333;
+}
+
+.list .item a.item-swipe:active {
+	color: inherit;
+}
+
+.list .item .item-swipe.open {
+	background: #333;
+}
+
+.list .item .item-swipe.open:before {
+	content: "\f00d";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: #fff;
+	position: absolute;
+	right: 10px;
+}
+
+.list .item .item-back {
+	background: #E1E1E1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	text-align: right;
+}
+
+.list .item .item-back .action {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 50px;
+	border: inherit;
+	outline: inherit;
+	color: #fff;
+	padding: 0;
+	font-size: 22px;
+}
+
+.list .item .item-back .action.first {
+	right: 0;
+}
+
+.list .item .item-back .action.second {
+	right: 50px;
+}
+
+.list .item .item-swipe.swiped {
+	-webkit-transition: all .1s linear;
+	-ms-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	transition: all .1s linear;
+}
+
+.btn-delete {
+	background: firebrick;
+}
+
+.btn-check {
+	background: green;
+}
