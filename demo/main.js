@@ -2,6 +2,7 @@ $(function() {
 	$('.item-swipe').swipeTo({
 		minSwipe: 100,
 		angle: 10,
+		wrapScroll: 'body',
 		binder: true,
 		swipeStart: function() {
 			console.log('start');
@@ -14,6 +15,7 @@ $(function() {
 		},
 	});	
 	deleteItem();
+	getIe();
 })
 
 var deleteItem = function() {

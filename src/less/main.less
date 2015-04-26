@@ -1,0 +1,66 @@
+@import 'variables';
+
+.list {
+	.item {
+		border-bottom: 1px solid @lightgray;
+		height: 40px;
+		.item-swipe {
+			background: @white;
+			padding: 10px;
+			z-index: 1;
+			&.open {
+				background: @dark;
+				&:before {
+					content: "\f00d";
+					font-family: FontAwesome;
+					font-style: normal;
+					font-weight: normal;
+					text-decoration: inherit;
+					color: @white;
+					position: absolute;
+					right: 10px;
+				}
+			}
+		}
+		a {
+			&.item-swipe {
+				color: @dark;
+				text-decoration: inherit;
+				&:active {
+					color: inherit;
+				}
+			}
+		}
+		.item-back {
+			background: @lightgray;
+			padding: 10px;
+			text-align: right;
+			.action {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				width: 50px;
+				border: inherit;
+				outline: inherit;
+				color: @white;
+				padding: 0;
+				font-size: 22px;
+				&.first {
+					right: 0;
+				}
+				&.second {
+					right: 50px;
+				}
+			}
+		}
+	}
+}
+
+.btn-delete {
+	background: @firebrick;
+}
+
+.btn-check {
+	background: @green;
+}

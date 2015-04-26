@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    margin:inherit;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.list {
+    width: 100%;
+    overflow: hidden;
+    .item {
+	    position: relative;
+	    .item-swipe {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			&a {
+				display: block;
+				height: 100%;
+				position: relative;
+				text-decoration: inherit;
+			}
+			&.swiped {
+				.transition(all .1s linear);
+			}
+		}
+		.item-back {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}

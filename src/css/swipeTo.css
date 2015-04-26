@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: inherit;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.list {
+  width: 100%;
+  overflow: hidden;
+}
+.list .item {
+  position: relative;
+}
+.list .item .item-swipe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.list .item .item-swipea {
+  display: block;
+  height: 100%;
+  position: relative;
+  text-decoration: inherit;
+}
+.list .item .item-swipe.swiped {
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.list .item .item-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

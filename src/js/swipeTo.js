@@ -32,9 +32,12 @@
 		    var e = ev.originalEvent;
 		    start = e.touches[0].clientX;
 		    vertical = e.touches[0].clientY;
+/*
 		    var style = window.getComputedStyle(that.get(0));
 		    var matrix = new WebKitCSSMatrix(style.transform);
 		    moveStatus = matrix.m41;
+*/
+			moveStatus = getPosition(that);
 		    start = 0 - moveStatus + start;
 		    if(typeof swipeStart == 'function') {
 			    swipeStart.call(this);   
@@ -77,9 +80,12 @@
 			var e = ev.originalEvent;
 			wrapScroll.removeClass('overflow-hidden');
 			that.removeClass('swiping');
+/*
 		    var style = window.getComputedStyle(that.get(0));
 		    var matrix = new WebKitCSSMatrix(style.transform);
 		    moveStatus = matrix.m41;
+*/
+			moveStatus = getPosition(that);
 		    var absMoveStatus = Math.abs(moveStatus);
 		    that.addClass('swiped');
 			if(absMoveStatus < minSwipe) {
@@ -111,15 +117,52 @@
 }(jQuery));
 
 var animateTo = function(that, pos) {
-	that.css({
-	        'transform': 'translateX('+pos+'px)',
-	        '-webkit-transform': 'translateX('+pos+'px)',
-	        '-moz-ransform': 'translateX('+pos+'px)',
-	        '-o-transform': 'translateX('+pos+'px)',
-	        '-ms-transform': 'translateX('+pos+'px)'
-	}, 500)
+	if(getIe()) {
+		that.css({
+		        'left': pos+'px'
+		}, 500)
+	} else {
+		that.css({
+		        'transform': 'translateX('+pos+'px)',
+		        '-webkit-transform': 'translateX('+pos+'px)',
+		        '-moz-ransform': 'translateX('+pos+'px)',
+		        '-o-transform': 'translateX('+pos+'px)',
+		        '-ms-transform': 'translateX('+pos+'px)'
+		}, 500)
+	}
 }
 
 var addCssClass = function(className, rules) {
 	$("<style type='text/css'>."+className+"{"+rules+"}</style>").appendTo("head");
+}
+
+var getPosition = function(handler) {
+	var moveStatus;
+	if(getIe()) {
+		moveStatus = handler.position().left;
+	} else {
+	    var style = window.getComputedStyle(handler.get(0));
+	    var matrix = new WebKitCSSMatrix(style.transform);
+	    moveStatus = matrix.m41;
+	}
+	return moveStatus;
+}
+
+var getIe = function() {
+	var browser = {
+		isIe: function () {
+			return navigator.appVersion.indexOf("MSIE") != -1;
+		},
+		navigator: navigator.appVersion,
+		getVersion: function() {
+			var version = 999;
+			if (navigator.appVersion.indexOf("MSIE") != -1)
+				version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+			return version;
+		}
+	};
+	if (browser.isIe() && browser.getVersion() <= 9) {
+		return true;
+	}
+	return false;
 }
