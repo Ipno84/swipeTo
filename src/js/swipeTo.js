@@ -32,11 +32,6 @@
 		    var e = ev.originalEvent;
 		    start = e.touches[0].clientX;
 		    vertical = e.touches[0].clientY;
-/*
-		    var style = window.getComputedStyle(that.get(0));
-		    var matrix = new WebKitCSSMatrix(style.transform);
-		    moveStatus = matrix.m41;
-*/
 			moveStatus = getPosition(that);
 		    start = 0 - moveStatus + start;
 		    if(typeof swipeStart == 'function') {
@@ -80,11 +75,6 @@
 			var e = ev.originalEvent;
 			wrapScroll.removeClass('overflow-hidden');
 			that.removeClass('swiping');
-/*
-		    var style = window.getComputedStyle(that.get(0));
-		    var matrix = new WebKitCSSMatrix(style.transform);
-		    moveStatus = matrix.m41;
-*/
 			moveStatus = getPosition(that);
 		    var absMoveStatus = Math.abs(moveStatus);
 		    that.addClass('swiped');
