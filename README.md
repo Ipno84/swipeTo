@@ -1,41 +1,49 @@
-#swipeTo#
+# swipeTo
+
 swipeTo is a jQuery plugin that emulate the native swipe to action feature upon a list on mobile phones
-#Usage#
+
+## Usage
+
 ### DOM
-    <div class="list">
-        <div class="item">
-            <a href="#" class="item-swipe">Item</a>
-            <div class="item-back">
-                ...
-            </div>
-        </div>
-        ...
-        <div class="item">
-            <a href="#" class="item-swipe">Item</a>
-            <div class="item-back">
-                ...
-            </div>
+```html
+<div class="list">
+    <div class="item">
+        <a href="#" class="item-swipe">Item</a>
+        <div class="item-back">
+            ...
         </div>
     </div>
+    ...
+    <div class="item">
+        <a href="#" class="item-swipe">Item</a>
+        <div class="item-back">
+            ...
+        </div>
+    </div>
+</div>
+```
     
 ### Javascript
-    $(function() {
-    	$('.item-swipe').swipeTo({
-    		minSwipe: 100,
-    		angle: 10,
-    		wrapScroll: 'body',
-    		binder: true,
-    		swipeStart: function() {
-    			console.log('start');
-    		},
-    		swipeMove: function() {
-    			console.log('move');
-    		},
-    		swipeEnd: function() {
-    			console.log('end');
-    		},
-    	});
-    })
+
+```js
+$(function() {
+    $('.item-swipe').swipeTo({
+        minSwipe: 100,
+        angle: 10,
+        wrapScroll: 'body',
+        binder: true,
+        swipeStart: function() {
+            console.log('start');
+        },
+        swipeMove: function() {
+            console.log('move');
+        },
+        swipeEnd: function() {
+            console.log('end');
+        },
+    });
+})
+```
 
 ### Options
 #### minSwipe
@@ -55,6 +63,8 @@ These are the callbacks that will be initialized, respectively, at the beginning
 
 If you want to use default options simply place this code in your javascript file
 
-    $(function() {
-        $('.item-swipe').swipeTo();
-    })
+```js
+$(function() {
+    $('.item-swipe').swipeTo();
+})
+```
